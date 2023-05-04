@@ -12,6 +12,10 @@ def bubble_sort(arr, sorting_order):
     # Get number of elements in the list
     n = len(arr_result)
 
+    for element in arr_result:
+        if not isinstance(element, int):
+            return 2
+
     if n < 10:
         # Traverse through all array elements
         for i in range(n - 1):
@@ -33,26 +37,35 @@ def bubble_sort(arr, sorting_order):
                 else:
                     # Return an empty array
                     arr_result = []
-    else:
-        arr_result = -1
-
+    elif n > 10:
+        arr_result = 1
+    elif n == 0:
+        arr_result = 0
     return arr_result
+
 
 def main():
     # Driver code to test above
-    arr = [64, 34, 25, 12, 22, 11, 90]
+    arr = []
+    input_string = input("Enter the elements of the array separated by commas: ")
+    arr_input = input_string.split(',')
+    for elem in arr_input:
+        if not elem.isdigit():
+            print("Invalid input:", elem)
+            result = 2
+            break
+        arr.append(int(elem))
+    else:
+        # Sort in ascending order
+        result = bubble_sort(arr, SORT_ASCENDING)
+        print("\nSorted array in ascending order: ")
+        print(result)
 
-    # Sort in ascending order
-    result = bubble_sort(arr, SORT_ASCENDING)
-    print("\nSorted array in ascending order: ")
-    print(result)
+        # Sort in descending order
+        print("Sorted array in descending order: ")
+        result = bubble_sort(arr, SORT_DESCENDING)
+        print(result)
 
-    # Sort in descending order
-    print("Sorted array in ascending order: ")
-    result = bubble_sort(arr, SORT_DESCENDING)
-    print(result)
 
 if __name__ == "__main__":
     main()
-
-

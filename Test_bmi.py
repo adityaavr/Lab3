@@ -1,4 +1,3 @@
-import Lab2.bmi
 import Lab2.bmi as bmi
 
 def test_bmi_underweight():
