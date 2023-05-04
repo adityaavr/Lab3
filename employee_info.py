@@ -21,11 +21,16 @@ def get_employees_by_age_range(age_lower_limit, age_upper_limit):
 def calculate_average_salary():
     total = 0
     average = 0
+    num_employees = len(employee_data)
 
-    #add your implementation to calculate here
+    # add your implementation to calculate here
+    for employee in employee_data:
+        total += employee["salary"]
 
+    average = total / num_employees
 
     return average
+
 
 def get_employees_by_dept(department):
     result = []
@@ -60,7 +65,7 @@ def display_main_menu():
 
     print("Q - Quit")
 
-    option = input("Enter selection =>")
+    option = input("Enter selection => ")
 
     if option == '1':
         display_all_records()
